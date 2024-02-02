@@ -12,7 +12,7 @@ function useWishlist() {
  {
     if(token)
     {
-        axios.post('http://localhost:5000/wishlist/add',data,{
+        axios.post('https://final-eco-mart-api.vercel.app/add',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{
@@ -34,7 +34,7 @@ function useWishlist() {
  {
     if(token)
     {
-        axios.get('http://localhost:5000/wishlist/get',{
+        axios.get('https://final-eco-mart-api.vercel.app/wishlist/get',{
         headers:{'x-token':token}
         })
         .then((res)=>{
@@ -58,7 +58,7 @@ function useWishlist() {
   }
     if(token)
     {
-        axios.post('http://localhost:5000/wishlist/remove',data,{
+        axios.post('https://final-eco-mart-api.vercel.app/wishlist/remove',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{

@@ -24,7 +24,7 @@ const navigate=useNavigate();
     const token=getcookie();
     if(token)
     {
-      axios.post('http://localhost:5000/addtocart',data1,{
+      axios.post('https://final-eco-mart-api.vercel.app/addtocart',data1,{
         headers: { 'x-token': token }
       })
 
@@ -50,7 +50,7 @@ const navigate=useNavigate();
    const token=getcookie();
    if(token)
    {
-    axios.post('http://localhost:5000/removetocart',data,{
+    axios.post('https://final-eco-mart-api.vercel.app/removetocart',data,{
       headers:{'x-token':token}
     })
     .then((res)=>{
@@ -73,7 +73,7 @@ const navigate=useNavigate();
     const data={id:id}
     const token=getcookie();
 
-    axios.put('http://localhost:5000/removeitemfromcart',data,{
+    axios.put('https://final-eco-mart-api.vercel.app/removeitemfromcart',data,{
       headers:{'x-token':token}
     })
     .then((res)=>{

@@ -9,7 +9,7 @@ const addresslist=useSelector(state=>state.useraddressslice)
 function getUserAddress()
 {
   const token=getcookie();
-  axios.get('http://localhost:5000/getuseraddress',{
+  axios.get('https://final-eco-mart-api.vercel.app/getuseraddress',{
     headers:{'x-token':token}
   })
   .then((res)=>{
@@ -26,7 +26,7 @@ function getUserAddress()
 }
 function removeuseraddress(data)
 {
-  axios.put('http://localhost:5000/deleteuseraddress',data)
+  axios.put('https://final-eco-mart-api.vercel.app/deleteuseraddress',data)
   .then((res)=>{
     if(res.data.status=='Success')
     {

@@ -34,7 +34,7 @@ function submit()
   const validation=adduserdata(userdetails,setmsg)
   if(validation)
   {
-  axios.post('http://localhost:5000/adduserdata',userdetails)
+  axios.post('https://final-eco-mart-api.vercel.app/adduserdata',userdetails)
   .then((res)=>{
       if(res.data.status='Success')
       {

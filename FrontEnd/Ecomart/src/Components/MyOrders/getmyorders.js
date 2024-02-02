@@ -3,7 +3,7 @@ import axios from "axios";
 const token=getcookie();
 export default function myordersdata(name,setordersdata)
 {
-    axios.get(`http://localhost:5000/myorders/get?tablename=${name}`,{
+    axios.get(`https://final-eco-mart-api.vercel.app/myorders/get?tablename=${name}`,{
         headers:{
             'x-token':token,
         }

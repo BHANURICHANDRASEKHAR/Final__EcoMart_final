@@ -5,7 +5,7 @@ const token = getcookie();
 console.log('token is the',token)
 async function successpayment(...data) {
   const navigate=data[data.length-1];
-  axios.post("http://localhost:5000/payment/success", data, {
+  axios.post("https://final-eco-mart-api.vercel.app/payment/success", data, {
     headers: {
       'x-token': token
     }
@@ -24,7 +24,7 @@ async function pay(cuurentstate, itemdata, navigate) {
       if (!res) {
         console.log('Error at razorpay.com');
       } else {
-        const result = await axios.post('http://localhost:5000/payment/create-order', itemdata);
+        const result = await axios.post('https://final-eco-mart-api.vercel.app/payment/create-order', itemdata);
         if (result) {
           const { amount, id, currency } = result.data;
 
@@ -61,7 +61,7 @@ async function pay(cuurentstate, itemdata, navigate) {
   } else {
       console.log('hello')
      
-      axios.post('http://localhost:5000/payment/addcoddata', itemdata,{
+      axios.post('https://final-eco-mart-api.vercel.app/payment/addcoddata', itemdata,{
         headers: {
           'x-token': token
         }

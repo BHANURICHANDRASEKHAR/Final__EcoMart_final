@@ -47,7 +47,7 @@ export default function AddUserAddress() {
         const flag =await addressvalidation(values, setError);
       
         if (flag) {
-          axios.post('http://localhost:5000/useraddress', values)
+          axios.post('https://final-eco-mart-api.vercel.app/useraddress', values)
             .then(res => {
               if (res.data.status === 'Success') {
                 notifysuccess(toast, 'Successfully Updated');

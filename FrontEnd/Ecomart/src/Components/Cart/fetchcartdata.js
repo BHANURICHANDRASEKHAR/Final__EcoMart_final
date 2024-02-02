@@ -8,7 +8,7 @@ export default function fetchcartdatafromdatabase(dispatch,navigate) {
     
    if(token)
    {
-    axios.get('http://localhost:5000/cartdata', {
+    axios.get('https://final-eco-mart-api.vercel.app/cartdata', {
         headers: { 'x-token': token }
     })
     .then((res) => {

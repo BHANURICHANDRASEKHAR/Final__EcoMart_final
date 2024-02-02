@@ -5,7 +5,7 @@ function cancelorder(...reasons)
 {
     const navigate=reasons[2];
     
-    axios.post('http://localhost:5000/orders/cancelorder',reasons,{
+    axios.post('https://final-eco-mart-api.vercel.app/orders/cancelorder',reasons,{
     headers:{
         'x-token':token
     }})
@@ -22,7 +22,7 @@ function cancelorder(...reasons)
 }
 export default cancelorder;
 export function getcancelorders(id,setcanceldata){
-axios.get(`http://localhost:5000/orders/get?id=${id}`,{
+axios.get(`https://final-eco-mart-api.vercel.app/orders/get?id=${id}`,{
     headers:{
         'x-token':token
     }})
