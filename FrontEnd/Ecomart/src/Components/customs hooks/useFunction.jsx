@@ -31,7 +31,7 @@ const navigate=useNavigate();
       .then((res)=>{
         if(res.data.status=='Success')
         { 
-          console.log(res.data.data)
+          
           dispatch(cartActions.addtocart(res.data.data))
 
         }
@@ -56,7 +56,7 @@ const navigate=useNavigate();
     .then((res)=>{
      if(res.data.status=='Success')
      {
-      console.log(res.data.data)
+     
       dispatch(cartActions.removecart(res.data.data))
      }
     })
@@ -79,7 +79,7 @@ const navigate=useNavigate();
     .then((res)=>{
      if(res.data.status=='Success')
      {
-      console.log(res.data.data)
+      
       dispatch(cartActions.datapush(res.data.data))
      }
     })

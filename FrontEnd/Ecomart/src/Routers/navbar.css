@@ -47,6 +47,7 @@
   .nav1 > #nav-check {
     display: none;
   }
+ 
   /* @media (max-width: 400px) and (min-width: 100px) {
     .nav1 > #nav-check:not(:checked) ~ .nav-links {
       height: 0px;

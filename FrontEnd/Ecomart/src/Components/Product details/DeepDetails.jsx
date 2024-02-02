@@ -11,7 +11,7 @@ export default function DeepDetails({items}) {
   return (
     <div className='container m-1'> <AddtoWishlist items={items}/> <h2>{name}</h2>
     <p><b>Price:&ensp;</b><del>₹{price+30}</del><b style={{color:'green'}}>&ensp;₹{price}</b></p>
-    <div className='w-100'> <p style={{textWrap:'wrap'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl tortor, lobortis non tortor sit amet, iaculis rhoncus ipsum. Fusce ornare nunc maximus dui molestie.</p></div>
+    <div className='w-100'> <p className='productdata'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl tortor, lobortis non tortor sit amet, iaculis rhoncus ipsum. Fusce ornare nunc maximus dui molestie.</p></div>
     <p>
     Availability:<b style={{color:'green'}}>100 in Stock</b></p>
   <div className='d-grid place-items-center m-4'>  <button onClick={()=>{addItems([id,name, price, image])}}>Add To Cart</button>

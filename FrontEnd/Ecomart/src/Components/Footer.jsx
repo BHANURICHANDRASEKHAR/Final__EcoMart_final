@@ -31,7 +31,7 @@ export default function Footer() {
  
          <div>
            <i className="fa fa-phone"></i>
-           <p>+91939988487</p>
+           <p>+919885465280</p>
          </div>
  
          <div>

@@ -57,7 +57,7 @@ export const ProductReviews = ({ reviewdata }) => {
   );
 };
 
-const UserRating=({rate})=>{
+export const UserRating=({rate})=>{
   const [rating, setRating] = useState(rate); 
 
   return(

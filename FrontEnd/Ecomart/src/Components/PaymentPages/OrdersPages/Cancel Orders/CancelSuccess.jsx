@@ -10,7 +10,7 @@ export default function CancelSuccess() {
     getcancelorders(id,setcanceldata);
  
     },[])
-    console.log(canceldata);
+  
     const productdata=canceldata.length>0&&canceldata[0];
   return (
     <div className='container mt-5 p-3' style={{background:'white'}}><CancelOrders productdata={productdata}/></div>

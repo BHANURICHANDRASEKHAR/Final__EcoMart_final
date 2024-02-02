@@ -8,6 +8,6 @@ export default function Reviews() {
     },[])
     console.log(reviewdata);
   return (
-    <ProductReviews reviewdata={reviewdata}/>
+     <ProductReviews reviewdata={reviewdata}/>
   )
 }

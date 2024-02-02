@@ -6,7 +6,7 @@ const navigate=useNavigate();
     const filterslist=['On The Way','Delivered','Cancelled'];
     function check(e)
     {
-      console.log(e.target.value)
+     
      if(e.target.value=='Cancelled')
      {
     if(e.target.checked)

@@ -17,6 +17,6 @@ function seacrhfunction(){
 useEffect(()=>{
 seacrhfunction();
 },[inputdata])
-console.log(originalist)
+
 return [setoriginallist,originalist,setinputdata,seacrhfunction];
 }

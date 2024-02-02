@@ -9,16 +9,13 @@ export default function App() {
   const dispatch=useDispatch();
   useEffect(()=>{
  const  token= getcookie();
-  if(!token)
+  if(token)
   {
-    console.log('logout function toen is not found')
-  
-  }
-  else{
-    console.log('login funcion')
+    
     dispatch(AuthActions.login())
   }
-  })
+
+  },[])
   return (
     <div>
     <Routers/>

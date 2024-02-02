@@ -1,20 +1,13 @@
 import React, { useState,useEffect } from 'react'
 import ProductDetails from '../PaymentPages/OrdersPages/ProductDetails';
 import { Noresult } from './OrdersMain';
-import useSearch from '../customs hooks/useSearch';
+import seacrhfunction from './searchfunction';
 function Products({ordersdata}) {
   const [inputdata,setinputdata]=useState('');
   const [itemlist,setitemslist]=useState(ordersdata)
-  function seacrhfunction(){
-       const searchlist=ordersdata.filter((e)=>{
-        const {productname}=e;
-         const actualname=productname.match(new RegExp(inputdata, 'i')); 
-         return actualname; 
-    });  
-        return(setitemslist(searchlist));
-    }
+
 useEffect(()=>{
-  seacrhfunction();
+  seacrhfunction(ordersdata,inputdata,setitemslist);
 },[inputdata])
 
   return (

@@ -45,7 +45,7 @@ export default function AddUserAddress() {
         event.preventDefault();
       
         const flag =await addressvalidation(values, setError);
-         console.log('hello chandu',flag)
+      
         if (flag) {
           axios.post('http://localhost:5000/useraddress', values)
             .then(res => {
@@ -62,7 +62,7 @@ export default function AddUserAddress() {
             });
         } else {
           // Move the console.log statement inside the else block
-          console.log("error is the ", error);
+  
           notifyerror(toast, error);
         }
       };

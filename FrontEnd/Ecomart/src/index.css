@@ -18,6 +18,9 @@ body {
   overflow-x: hidden;
 
 }
+p{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 .active{
   border-bottom: 1px solid black;
   color:red;
