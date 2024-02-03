@@ -28,7 +28,9 @@ app.use(
       credentials: true, // Allow credentials
     })
   );
-  
+app.post('/',(req,res)=>{
+   res.send('Hello World')
+})
 app.use(signup)
 app.use(loginroute)
 app.use(useraccountroute)
