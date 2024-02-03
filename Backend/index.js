@@ -22,7 +22,7 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 app.use(
     cors({
-      origin: ['https://final-eco-mart-final.vercel.app'],
+      origin: ['https://65be00c0d5f43f68f0f3d30d--profound-pony-776c32.netlify.app'],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       exposedHeaders: ['Content-Type', 'Authorization', 'XMLHttpRequest'],
       credentials: true, // Allow credentials
