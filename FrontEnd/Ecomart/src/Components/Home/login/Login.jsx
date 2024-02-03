@@ -32,7 +32,7 @@ const [msg,setError]=useState()
     event.preventDefault();
    if(loginvalidate(values,setError))
    {
-    axios.post('https://final-eco-mart-api.vercel.app/login',values)
+    axios.post('https://ecomart-apii.onrender.com/login',values)
     .then((res)=>{
         if(res.data.status=='Success')
         {

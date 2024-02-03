@@ -24,7 +24,7 @@ const navigate=useNavigate();
     const token=getcookie();
     if(token)
     {
-      axios.post('https://final-eco-mart-api.vercel.app/addtocart',data1,{
+      axios.post('https://ecomart-apii.onrender.com/addtocart',data1,{
         headers: { 'x-token': token }
       })
 
@@ -50,7 +50,7 @@ const navigate=useNavigate();
    const token=getcookie();
    if(token)
    {
-    axios.post('https://final-eco-mart-api.vercel.app/removetocart',data,{
+    axios.post('https://ecomart-apii.onrender.com/removetocart',data,{
       headers:{'x-token':token}
     })
     .then((res)=>{
@@ -73,7 +73,7 @@ const navigate=useNavigate();
     const data={id:id}
     const token=getcookie();
 
-    axios.put('https://final-eco-mart-api.vercel.app/removeitemfromcart',data,{
+    axios.put('https://ecomart-apii.onrender.com/removeitemfromcart',data,{
       headers:{'x-token':token}
     })
     .then((res)=>{

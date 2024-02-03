@@ -17,7 +17,7 @@ function useReview() {
     const token=getcookie();
     if(token)
     {
-        axios.post('https://final-eco-mart-api.vercel.app/add',data,{
+        axios.post('https://ecomart-apii.onrender.com/add',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{
@@ -35,7 +35,7 @@ function useReview() {
     }
   }
  function fetchReviews(id) {
-  axios.get(`https://final-eco-mart-api.vercel.app/reviews/get?id=${id}`)
+  axios.get(`https://ecomart-apii.onrender.com/reviews/get?id=${id}`)
     .then((res) => {
       if (res.data.status === 'Success') {
      

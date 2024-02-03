@@ -25,7 +25,7 @@ export default function Signup() {
     event.preventDefault();
     if(validateForm(values,setError))
     {
-      axios.post('https://final-eco-mart-api.vercel.app/signup', values)
+      axios.post('https://ecomart-apii.onrender.com/signup', values)
       .then((res) => {
         if (res.data.status === 'Success') {
           navigate('/login');

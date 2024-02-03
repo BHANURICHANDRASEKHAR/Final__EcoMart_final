@@ -11,7 +11,7 @@ export default function Account() {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   useEffect(()=>{
-    fetchdatafromdatabase(...['get', 'https://final-eco-mart-api.vercel.app/user', dispatch, navigate]);
+    fetchdatafromdatabase(...['get', 'https://ecomart-apii.onrender.com/user', dispatch, navigate]);
    
   },[])
   const isOutletRendering = useOutlet();

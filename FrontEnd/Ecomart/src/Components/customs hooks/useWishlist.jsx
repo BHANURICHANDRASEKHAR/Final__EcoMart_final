@@ -12,7 +12,7 @@ function useWishlist() {
  {
     if(token)
     {
-        axios.post('https://final-eco-mart-api.vercel.app/add',data,{
+        axios.post('https://ecomart-apii.onrender.com/add',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{
@@ -34,7 +34,7 @@ function useWishlist() {
  {
     if(token)
     {
-        axios.get('https://final-eco-mart-api.vercel.app/wishlist/get',{
+        axios.get('https://ecomart-apii.onrender.com/wishlist/get',{
         headers:{'x-token':token}
         })
         .then((res)=>{
@@ -58,7 +58,7 @@ function useWishlist() {
   }
     if(token)
     {
-        axios.post('https://final-eco-mart-api.vercel.app/wishlist/remove',data,{
+        axios.post('https://ecomart-apii.onrender.com/wishlist/remove',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{
