@@ -7,8 +7,8 @@ const connetor = require('../db');
 router.post('/signup', async (req, res) => {
   try {
     const data = req.body;
-    const hashedData = await hashpass(data);
-    const existingPerson = await InsertDataIntoDatase(hashedData);
+    // const hashedData = await hashpass(data);
+    const existingPerson = await InsertDataIntoDatase(data);
 
     if (existingPerson) {
       res.status(200).json({ status: 'Success' });
@@ -21,17 +21,17 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-async function hashpass(data) {
-  try {
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(data.password, salt);
-    data.password = hashPassword;
-    return data;
-  } catch (e) {
-    console.error('Error occurred at hashing password:', e);
-    throw e;
-  }
-}
+// async function hashpass(data) {
+//   try {
+//     const salt = await bcrypt.genSalt();
+//     const hashPassword = await bcrypt.hash(data.password, salt);
+//     data.password = hashPassword;
+//     return data;
+//   } catch (e) {
+//     console.error('Error occurred at hashing password:', e);
+//     throw e;
+//   }
+// }
 
 async function InsertDataIntoDatase(data) {
   try {
