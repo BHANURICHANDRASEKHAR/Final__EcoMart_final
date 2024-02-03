@@ -11,7 +11,7 @@ async function successpayment(...data) {
     }
   }).then(res => {
     const order_id=res.data.order_id;
-   navigate(`/orderplaced/${order_id}`)
+    navigate(`/orderplaced/${order_id}`)
   }).catch(error => {
     console.error(error);
   });
@@ -59,8 +59,7 @@ async function pay(cuurentstate, itemdata, navigate) {
       console.log(e.message);
     }
   } else {
-   
-     
+
       axios.post('https://ecomart-apii.onrender.com/payment/addcoddata', itemdata,{
         headers: {
           'x-token': token

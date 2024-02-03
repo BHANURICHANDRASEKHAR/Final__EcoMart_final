@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
     const textpassword = data.password;
     // const passswordcompare = await bcrypt.compare(textpassword, haspassword);
     
-    if (textpassword===haspassword) {
+    if (textpassword==haspassword) {
       const token = signjwt(currentdata);
 
       res.status(200).json({ status: 'Success', msg: `hello ${currentdata.name}`,token:token });

@@ -1,6 +1,6 @@
 const db=require('../db')
  function orderstodatabase(...data){
-  console.log('...data is the ',data)
+
     const [items,id,email,status]=data;
    console.log(items)
    var date=new Date().toDateString();
