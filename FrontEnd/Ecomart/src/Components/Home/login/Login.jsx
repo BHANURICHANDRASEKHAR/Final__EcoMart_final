@@ -32,7 +32,7 @@ const [msg,setError]=useState()
     event.preventDefault();
    if(loginvalidate(values,setError))
    {
-    axios.post('https://ecomart-apii.onrender.com/login',values)
+    axios.post('https://profound-pony-776c32.netlify.app/login',values)
     .then((res)=>{
         if(res.data.status=='Success')
         {
