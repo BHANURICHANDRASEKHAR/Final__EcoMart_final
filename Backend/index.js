@@ -22,7 +22,7 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 app.use(
     cors({
-      origin: ['https://silver-heliotrope-f2afff.netlify.app/'],
+      origin: ['https://silver-heliotrope-f2afff.netlify.app','https://profound-pony-776c32.netlify.app'],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       exposedHeaders: ['Content-Type', 'Authorization', 'XMLHttpRequest'],
       credentials: true, // Allow credentials
