@@ -4,6 +4,7 @@ const connector=require('../db');
 const {tokenverify}=require('../tokenverify_middleware')
 router.post('/add',tokenverify,(req,res)=>{
     const {id,image,price,name}=req.body
+    console.log(req.body,req.user.email)
     const insertquery=`insert into wishlist values(?,?,?,?,?,?)`
     connector.query(insertquery,[req.user.email,id,image,name,price,true],(err)=>{
         if(err) throw err;
