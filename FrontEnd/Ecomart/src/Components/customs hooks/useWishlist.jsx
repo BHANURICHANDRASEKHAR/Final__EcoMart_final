@@ -12,7 +12,7 @@ function useWishlist() {
  {
     if(token)
     {
-        axios.post('https://ecomart-apii.onrender.com/add',data,{
+        axios.post('https://ecomart-apii.onrender.com/wishlist/add',data,{
         headers:{'x-token':token}
         })
         .then((res)=>{

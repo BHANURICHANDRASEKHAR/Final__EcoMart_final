@@ -34,7 +34,7 @@ function submit()
   const validation=adduserdata(userdetails,setmsg)
   if(validation)
   {
-  axios.post('hhttps://ecomart-apii.onrender.com/adduserdata',userdetails)
+  axios.post('https://ecomart-apii.onrender.com/adduserdata',userdetails)
   .then((res)=>{
       if(res.data.status='Success')
       {
