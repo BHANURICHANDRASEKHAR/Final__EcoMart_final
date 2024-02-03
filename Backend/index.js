@@ -25,7 +25,7 @@ app.use(
       origin: ['https://silver-heliotrope-f2afff.netlify.app'],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       exposedHeaders: ['Content-Type', 'Authorization', 'XMLHttpRequest'],
-      credentials: true, // Allow credentials
+      credentials: true, 
     })
   );
 app.post('/',(req,res)=>{
