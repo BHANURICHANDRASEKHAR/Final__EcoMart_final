@@ -4,6 +4,7 @@ import axios from 'axios';
 const token = getcookie();
 console.log('token is the',token)
 async function successpayment(...data) {
+  const token = getcookie();
   const navigate=data[data.length-1];
   axios.post("https://ecomart-apii.onrender.com/payment/success", data, {
     headers: {
@@ -59,7 +60,7 @@ async function pay(cuurentstate, itemdata, navigate) {
       console.log(e.message);
     }
   } else {
-
+    const token = getcookie();
       axios.post('https://ecomart-apii.onrender.com/payment/addcoddata', itemdata,{
         headers: {
           'x-token': token

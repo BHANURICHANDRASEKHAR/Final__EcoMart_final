@@ -1,0 +1,12 @@
+# Redirects from what the browser requests to what we serve
+# Redirects for React Router routes
+/account/*    /account    200
+/usercart/*   /usercart   200
+/shop/*       /shop       200
+/login*       /login      200
+/signup*      /signup     200
+/productdetails/*    /productdetails/:id    200
+/orderplaced/*       /orderplaced/:order_id 200
+/payment/*   /payment/:id 200
+/cancel-order/*      /cancel-order/:id      200
+/order-Canceled/*     /order-Canceled/:id    200
