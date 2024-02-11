@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
     const sqldata = await checkperson(data);
     if (!sqldata || sqldata.length == 0) {
       console.log(sqldata)
-      res.status(200).json({ status: 'unSuccess', msg: 'User Not Found' });
+      res.status(200).json({ status: 'unSuccess', msg: 'User was Not Found' });
     }
    else{ const currentdata = sqldata[0];
     const haspassword = currentdata.password;
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
 
       res.status(200).json({ status: 'Success', msg: `hello ${currentdata.name}`,token:token });
     } else {
-      res.status(500).json({ status: 'unSuccess', msg: 'Password was Incorrect' });
+      res.status(200).json({ status: 'unSuccess', msg: 'Password was Incorrect' });
     }}
   } catch (e) {
     console.log(e.message);
