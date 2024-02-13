@@ -4,7 +4,7 @@ const connetor=sql.createConnection({
     port: 18904,
     user: 'avnadmin',
     password: 'AVNS_xWFJEYZbUyXthSQa4C1',
-    database: 'defaultdb', 
+    database: 'Ecomart', 
 })
 connetor.connect((err)=>{
    if(err) console.log(err);
