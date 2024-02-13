@@ -1,9 +1,10 @@
 const sql=require('mysql')
 const connetor=sql.createConnection({
-    host:'sql6.freesqldatabase.com',
-    user:'sql6681069',
-    password:'PFx8iWwIQp',
-    database:'sql6681069'
+    host: 'mysql-1c74fdef-boyshostel1148-f80f.a.aivencloud.com',
+    port: 18904,
+    user: 'avnadmin',
+    password: 'AVNS_xWFJEYZbUyXthSQa4C1',
+    database: 'Ecomart', 
 })
 connetor.connect((err)=>{
    if(err) console.log(err);
