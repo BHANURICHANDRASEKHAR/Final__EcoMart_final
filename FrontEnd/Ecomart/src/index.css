@@ -25,3 +25,20 @@ p{
   border-bottom: 1px solid black;
   color:red;
 }
+.loader {
+
+  height: 40px;
+  width:40px;
+  border-radius: 50%;
+  border-top: 5px solid blue;
+  animation: loader 5s infinite;
+}
+
+@keyframes loader {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}

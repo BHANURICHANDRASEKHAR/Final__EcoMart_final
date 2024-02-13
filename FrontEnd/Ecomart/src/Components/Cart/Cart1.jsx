@@ -9,6 +9,7 @@ import Pricedetailes from './Pricedetailes';
 export default function Cart1() {
 const navigate=useNavigate();
  const [addItems, removeItems,cartdata,removeentireItem]=useFunction();
+ 
 const item = cartdata.itemslist;
 const count = cartdata.totalprice;
 const dispatch = useDispatch();
@@ -17,8 +18,8 @@ useEffect(() => {
   fetchcartdatafromdatabase(dispatch, navigate);
 }, []);
 
-const confirm = (id) => {
-  removeentireItem(id)
+const confirm = (id,setloader) => {
+  removeentireItem(id,setloader)
 };
     return(
         <React.Fragment>

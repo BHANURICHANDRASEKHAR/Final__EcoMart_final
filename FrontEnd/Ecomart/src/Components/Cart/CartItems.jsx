@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Popconfirm } from 'antd';
 import Cartbutton1 from './Cartbutton1'; //increment and dec button
 import reacticons from '../../icons';
+import Loader from '../../Loader';
 import './cart1.css'
 export default function CartItems({ item, confirm }) {
+  const [loader,setloader]=useState(false)
     return (
       <table className='table cart-table mb-0 table-responsive-sm'>
         <thead>
@@ -31,10 +33,11 @@ export default function CartItems({ item, confirm }) {
                   </td>
                   <td className='text-right'>₹ {price * quantity}</td>
                   <td>
+                  {loader&&<Loader/>}
                     <Popconfirm
                       title="Delete the Item"
                       description="Are you sure to delete this Item?"
-                      onConfirm={() => { confirm(id) }}
+                      onConfirm={() => { confirm(id,setloader) }}
                       style={{ width: '100px' }}
                       okText="Yes"
                       cancelText="No"

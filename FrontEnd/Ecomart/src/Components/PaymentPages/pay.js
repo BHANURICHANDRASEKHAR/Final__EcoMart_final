@@ -18,13 +18,15 @@ async function successpayment(...data) {
   });
 }
 
-async function pay(cuurentstate, itemdata, navigate) {
+async function pay(cuurentstate, itemdata, navigate,setloader) {
   if (cuurentstate === 'Pay Online') {
+    setloader(true)
     try {
       const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
       if (!res) {
         console.log('Error at razorpay.com');
       } else {
+
         const result = await axios.post('https://ecomart-apii.onrender.com/payment/create-order', itemdata);
         if (result) {
           const { amount, id, currency } = result.data;
@@ -55,6 +57,7 @@ async function pay(cuurentstate, itemdata, navigate) {
           const paymentObject = new window.Razorpay(options);
           paymentObject.open();
         }
+        setloader(false)
       }
     } catch (e) {
       console.log(e.message);

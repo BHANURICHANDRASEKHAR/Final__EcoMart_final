@@ -4,12 +4,14 @@ import Products from './Products';
 import {SearchItems} from './Products'
 import { useOutlet,Outlet } from 'react-router-dom'
 import './myorders.css'
+import Loader from '../../Loader';
 import myordersdata from './getmyorders'
 export default function OrdersMain() {
     const [tabelname,settablename]=useState('orders');
+    const [loader,setloader]=useState(false)
     const [ordersdata,setordersdata]=useState([])
     useEffect(()=>{
-        myordersdata(tabelname,setordersdata); 
+        myordersdata(tabelname,setordersdata,setloader); 
     },[tabelname])
     var productdata=ordersdata.length>=0&&ordersdata;
     const isOutletRendering = useOutlet();
@@ -17,6 +19,7 @@ export default function OrdersMain() {
   return (
     <div className='container-fluid mt-5 myorders-parent'>
     <Filters/>
+    {loader &&<Loader/>}
     {isOutletRendering ? null : (productdata.length <= 0 ? <Noresult /> : <Products ordersdata={ordersdata} />)}
     <Outlet/>
     </div>

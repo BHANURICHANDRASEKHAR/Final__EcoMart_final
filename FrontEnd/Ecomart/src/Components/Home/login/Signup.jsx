@@ -6,10 +6,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import validateForm from './signupformvalidation';
 import { ToastContainer, toast } from 'react-toastify';
 import { notifysuccess,notifyerror } from '../../../../tostisy';
+import Loader from '../../../Loader';
 export default function Signup() {
   const navigate = useNavigate();
   const [error,setError]=useState('')
-
+ const [loader,setloader]=useState(false)
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -25,16 +26,22 @@ export default function Signup() {
     event.preventDefault();
     if(validateForm(values,setError))
     {
+      setloader(true)
       axios.post('https://ecomart-apii.onrender.com/signup', values)
       .then((res) => {
         if (res.data.status === 'Success') {
+          setloader(false)
           navigate('/login');
         } else {
+          setloader(false)
+
           setError('person already existed Please login ');
           notifyerror(toast,error)
         }
       })
       .catch((err) => {
+        setloader(false)
+
         console.log('unsuccess', err);
       });
     } else{
@@ -120,11 +127,13 @@ export default function Signup() {
               >
                 Submit
               </button>
+              
               <Link to='/login' style={{ textDecoration: 'none' }}>
                 <button className='donthaveaccount'>
                   Already have an account
                 </button>
                 <br />
+                {loader && <Loader/>}
               </Link>
             </form>
           </div>

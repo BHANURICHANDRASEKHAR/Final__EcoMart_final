@@ -12,7 +12,7 @@ const navigate=useNavigate();
 
   function addItems(data) {
    
-    const [id,productname,price,productimg]=data;
+    const [id,productname,price,productimg,setloader]=data;
   const data1=[{
     productimg:productimg,
     id:id,
@@ -24,6 +24,7 @@ const navigate=useNavigate();
     const token=getcookie();
     if(token)
     {
+      setloader(true)
       axios.post('https://ecomart-apii.onrender.com/addtocart',data1,{
         headers: { 'x-token': token }
       })
@@ -33,10 +34,12 @@ const navigate=useNavigate();
         { 
           
           dispatch(cartActions.addtocart(res.data.data))
+          setloader(false)
 
         }
       })
    .catch((e)=>{
+    setloader(false)
     console.log(e.message)
    })
     }
@@ -45,11 +48,12 @@ const navigate=useNavigate();
     }
   }
   
-  function removeItems(data) {
+  function removeItems(data,setloader) {
 
    const token=getcookie();
    if(token)
    {
+    setloader(true)
     axios.post('https://ecomart-apii.onrender.com/removetocart',data,{
       headers:{'x-token':token}
     })
@@ -58,9 +62,11 @@ const navigate=useNavigate();
      {
      
       dispatch(cartActions.removecart(res.data.data))
+      setloader(false)
      }
     })
     .catch((error) => {
+      setloader(false)
       console.error('Error:', error.message);
     });
    }
@@ -68,11 +74,11 @@ const navigate=useNavigate();
     navigate('/login')
    }
   }
-  function removeentireItem(id)
+  function removeentireItem(id,setloader)
   {
     const data={id:id}
     const token=getcookie();
-
+    setloader(true)
     axios.put('https://ecomart-apii.onrender.com/removeitemfromcart',data,{
       headers:{'x-token':token}
     })
@@ -81,9 +87,12 @@ const navigate=useNavigate();
      {
       
       dispatch(cartActions.datapush(res.data.data))
+      setloader(false)
      }
     })
     .catch((error) => {
+      setloader(false)
+
       console.error('Error:', error.message);
     });
   }

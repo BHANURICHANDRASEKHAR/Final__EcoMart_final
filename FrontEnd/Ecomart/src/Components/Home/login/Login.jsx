@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Assuming you are using React Router
 import img from '../../../assets/imgs/171.png'
 import './login.css'
-import img1 from '../../../../public/login.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import { notifysuccess,notifyerror } from '../../../../tostisy';
 import axios from 'axios';
 import { loginvalidate } from './signupformvalidation';
 import Cookies from 'js-cookie';
 import {AuthActions} from '../../../../Redux-store/Centralstore/reduers'
-import { useSelector,useDispatch } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import Loader from '../../../Loader';
 export default function Login() {
-  const navigate=useNavigate() //navigate function 
+  const navigate=useNavigate() //navigate function
+  const [loader,setloader]=useState(false) 
   const dispatch=useDispatch();
   const [values, setValues] = useState({
     email: '',
@@ -32,6 +32,7 @@ const [msg,setError]=useState()
     event.preventDefault();
    if(loginvalidate(values,setError))
    {
+    setloader(true)
     axios.post('https://ecomart-apii.onrender.com/login',values)
     
     .then((res)=>{
@@ -41,15 +42,19 @@ const [msg,setError]=useState()
           notifysuccess(toast,res.data.msg)
           
           dispatch(AuthActions.login());
+          setloader(false)
            navigate('/')
         }
         else{
+          setloader(false)
           notifyerror(toast,res.data.msg)
         }
     })
     .catch((err)=>{
+      setloader(false)
       console.log('error occured')
     })
+   
    }
    else{
     notifyerror(toast,msg)
@@ -94,6 +99,7 @@ const [msg,setError]=useState()
 
               <Link to='/signup' style={{ textDecoration: 'none',outline:'none' }}>
                 <button className='donthaveaccount'>Don't have any account</button><br />
+                {loader &&<Loader/>}
               </Link>
             </form>
           </div>

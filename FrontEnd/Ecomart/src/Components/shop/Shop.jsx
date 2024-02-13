@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
-import { useNavigate, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import AOS from 'aos'
 import reacticons from '../../../src/icons';
 import Sticky1 from './Sticky1';
@@ -9,11 +9,7 @@ import './shop.css'
 import '../../Routers/navbar.css'
 import '../../Components/Home/features/features.css'
 import Rating from './Rating';
-import axios from 'axios';
 import rawdata from '../../../data/testdata';
-import {cartActions} from '../../../Redux-store/Centralstore/cart-slice'
-import { useDispatch } from 'react-redux';
-import { getcookie } from '../../../fetchfunction';
 import useFunction from '../customs hooks/useFunction';
 export default function Shop() {
 useEffect(()=>{
@@ -21,7 +17,7 @@ useEffect(()=>{
 })
   // State for storing and displaying product data
   const [groupdata, setgroupdata] = useState(rawdata);
-
+const [loader,setloader]=useState(false)
 const [addItems]=useFunction();
   // Filtering function based on price
   function fun(filtervalue) {
@@ -39,7 +35,7 @@ const [addItems]=useFunction();
     setgroupdata(data1);
   }
  function addToCart (id, productname, price, productimg) {
-   addItems([id,productname,price,productimg])
+   addItems([id,productname,price,productimg,setloader])
     }
 
   return (
@@ -50,9 +46,10 @@ const [addItems]=useFunction();
           <div className='main-grid'>
             {groupdata.map((e,index) => {
               return (
-             <Cartdata key={index} e={e} addToCart={addToCart}/>
+             <Cartdata key={index} e={e} addToCart={addToCart} loader={loader}/>
               );
             })}
+           
           </div>
         </div>
 
@@ -62,7 +59,7 @@ const [addItems]=useFunction();
     </div>
   );
 }
-export const Cartdata=({e,addToCart})=>{
+export const Cartdata=({e,addToCart,loader})=>{
   const { id, image, name, price } = e;
   return(
     <Card style={{ width: 'auto',height:'370px' }}  

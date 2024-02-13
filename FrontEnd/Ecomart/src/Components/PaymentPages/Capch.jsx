@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { notifyerror } from '../../../tostisy';
 import { toast } from 'react-toastify';
 
-export default function Capcha({pay,cuurentstate,itemdata,navigate}) {
+export default function Capcha({pay,cuurentstate,itemdata,navigate,}) {
     const [input,setinput]=useState('')
     const [flag,setflag]=useState(false)
 useEffect(()=>{
