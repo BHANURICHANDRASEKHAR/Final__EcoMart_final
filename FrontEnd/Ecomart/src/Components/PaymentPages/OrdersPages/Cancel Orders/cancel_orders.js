@@ -1,10 +1,10 @@
 import axios  from "axios";
 import { getcookie } from "../../../../../fetchfunction";
-const token=getcookie();
+
 function cancelorder(...reasons)
 {
     const navigate=reasons[2];
-    
+    const token=getcookie();
     axios.post('https://ecomart-apii.onrender.com/orders/cancelorder',reasons,{
     headers:{
         'x-token':token
@@ -22,6 +22,7 @@ function cancelorder(...reasons)
 }
 export default cancelorder;
 export function getcancelorders(id,setcanceldata){
+    const token=getcookie();
 axios.get(`https://ecomart-apii.onrender.com/orders/get?id=${id}`,{
     headers:{
         'x-token':token
