@@ -22,7 +22,7 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 app.use(
     cors({
-      origin: ['https://profound-pony-776c32.netlify.app'],
+      origin: ['https://profound-pony-776c32.netlify.app','http://localhost:5173'],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       exposedHeaders: ['Content-Type', 'Authorization', 'XMLHttpRequest'],
       credentials: true, 
