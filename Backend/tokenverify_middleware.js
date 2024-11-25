@@ -10,7 +10,6 @@ function tokenverify(req, res, next) {
       return res.status(401).json({ message: 'Login is required' });
       
     }
-
     const payload = jwt.verify(token, process.env.jwt_secretekey);
     req.user = payload;
     next();

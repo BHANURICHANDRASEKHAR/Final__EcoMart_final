@@ -57,6 +57,7 @@ async function checkperson(data) {
     const checkQuery = 'SELECT * FROM users WHERE mail = ?';
     const query = promisify(connetor.query).bind(connetor);
     const result = await query(checkQuery, [data.email]);
+    
     return result;
   } catch (error) {
     console.error('Error occurred during database query:', error);

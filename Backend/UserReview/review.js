@@ -3,12 +3,13 @@ const router=express.Router();
 const {tokenverify}=require('../tokenverify_middleware')
 const connector=require('../db')
 router.post('/add',tokenverify,(req,res)=>{
-    console.log(req.body)
+   
    const email=req.user.email;
+   console.log(email);
    const data=req.body;
    const currentDate = new Date();
    const dateString = currentDate.toDateString();
-   console.log(dateString)
+   
    const inserquery=`insert into reviews values(?,?,?,?,?,?,?)`;
    connector.query(inserquery,[email,data.id,data.image,data.comment,data.rating,data.name,dateString],(err,data)=>{
     if(err) throw err;
@@ -21,13 +22,13 @@ router.get('/get',(req,res)=>{
    try{
     const selectquery=`select * from reviews where id=(?)`;
     connector.query(selectquery,[id],(err,data)=>{
-   if(err)  console.log(err.message);
+   if(err) 
     res.status(200).json({status:'Success',data:data})
      })
    }
    catch(e)
    {
-    console.log(e.message)
+   
    }
 })
 module.exports=router;
