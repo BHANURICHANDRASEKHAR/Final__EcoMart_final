@@ -1,10 +1,12 @@
 const sql=require('mysql')
+const dotenv = require('dotenv');
+dotenv.config();
 const connetor=sql.createConnection({
-    host: 'localhost',
+    host: 'sql12.freemysqlhosting.net',
 
-    user: 'root',
-    password: 'Chandu@1148',
-    database: 'ecomart', 
+    user: process.env.db_name,
+    password: process.env.db_pass,
+    database: process.env.db_name, 
 })
 connetor.connect((err)=>{
    if(err) console.log(err);
