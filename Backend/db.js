@@ -2,8 +2,7 @@ const sql=require('mysql')
 const dotenv = require('dotenv');
 dotenv.config();
 const connetor=sql.createConnection({
-    host: 'sql12.freemysqlhosting.net',
-
+    host: 'sql12.freesqldatabase.com',
     user: process.env.db_name,
     password: process.env.db_pass,
     database: process.env.db_name, 
