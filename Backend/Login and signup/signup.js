@@ -52,7 +52,7 @@ async function InsertDataIntoDatase(data) {
 }
 
 async function checkperson(data) {
-  console.log(data)
+  
   try {
     const checkQuery = 'SELECT * FROM users WHERE mail = ?';
     const query = promisify(connetor.query).bind(connetor);

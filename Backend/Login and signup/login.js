@@ -10,6 +10,7 @@ router.post('/login', async (req, res) => {
   try {
 
     const sqldata = await checkperson(data);
+    console.log(sqldata);
     if (!sqldata || sqldata.length == 0) {
       console.log(sqldata)
       res.status(200).json({ status: 'unSuccess', msg: 'User was Not Found' });
